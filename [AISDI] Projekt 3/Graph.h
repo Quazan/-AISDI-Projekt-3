@@ -13,7 +13,7 @@ class Graph
 	void DFS(int);
 	void resetVisited();
 public:
-	Graph();
+	Graph(int);
 	~Graph();
 	void add(int, int);
 	int findBridges();

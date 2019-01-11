@@ -26,9 +26,9 @@ void Graph::resetVisited()
 	}
 }
 
-Graph::Graph()
+Graph::Graph(int v)
 {
-	vertex = 0;
+	vertex = v;
 }
 
 
@@ -41,9 +41,6 @@ void Graph::add(int a, int b)
 {
 	list[a].push_back(b);
 	list[b].push_back(a);
-
-	vertex = std::max(vertex, a + 1);
-	vertex = std::max(vertex, b + 1);
 }
 
 
@@ -55,7 +52,7 @@ int Graph::findBridges()
 		for (auto it = list[i].begin(); it != list[i].end(); it++)
 		{
 			if (*it < i) continue;
-			//if (list[i].size() == 1 || list[*it].size() == 1) continue;
+			if (list[i].size() == 1 || list[*it].size() == 1) continue;
 			visited[i] = visited[*it] = true;
 			check = 2;
 
@@ -71,7 +68,6 @@ int Graph::findBridges()
 						break;
 					}
 				}
-
 			}
 			resetVisited();
 		}
