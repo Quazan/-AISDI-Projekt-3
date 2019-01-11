@@ -3,10 +3,25 @@
 
 #include "pch.h"
 #include <iostream>
+#include "Graph.h"
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	Graph graf;
+
+	int v, e;
+	int a, b;
+
+	std::cin >> v >> e;
+	for (int i = 0; i < e; i++)
+	{
+		std::cin >> a >> b;
+		graf.add(a, b);
+	}
+
+	graf.findBridges();
+	std::cout << "Bridges: " << std::endl;
+	graf.printBridges();
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
