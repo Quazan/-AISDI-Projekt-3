@@ -16,6 +16,8 @@ public:
 	~Graph();
 	void add(int, int);
 	int findBridges();
-	void printBridges();
+	//void printBridges();
+
+	std::vector <std::pair<int, int>>* returnBridges();
 };
 

@@ -79,11 +79,16 @@ int Graph::findBridges()
 	return 0;
 }
 
-void Graph::printBridges()
+/*void Graph::printBridges()
 {
 	for (auto it = bridges.begin(); it != bridges.end(); it++)
 	{
 		std::pair<int, int> p = *it;
 		std::cout << p.first << " " << p.second << std::endl;
 	}
+}*/
+
+std::vector<std::pair<int, int>>* Graph::returnBridges()
+{
+	return &bridges;
 }

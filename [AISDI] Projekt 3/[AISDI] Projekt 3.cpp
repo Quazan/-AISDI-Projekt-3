@@ -12,16 +12,44 @@ int main()
 	int v, e;
 	int a, b;
 
-	std::cin >> v >> e;
+	/*std::cin >> e;
 	for (int i = 0; i < e; i++)
 	{
 		std::cin >> a >> b;
 		graf.add(a, b);
+	}*/
+	std::cout << "Podaj liczbe wierzcholkow w grafie." << std::endl;
+	//std::cin >> v;
+	std::cout << "W kolejnych liniach podaj definicje krawedzi w grafie. Dwie liczby oddzielone spacja. Wcisnij ctrl+d aby zakonczyc wprowadzanie krawedzi." << std::endl;
+	/*while (true)
+	{
+		std::cin >> a >> b;
+		if (std::cin.eof()) break;
+		graf.add(a, b);
+	}*/
+
+	for (int i = 0; i < 100; i++)
+	{
+		for (int j = i + 1; j < 100; j++)
+		{
+			graf.add(i, j);
+		}
 	}
 
 	graf.findBridges();
 	std::cout << "Bridges: " << std::endl;
-	graf.printBridges();
+	std::vector <std::pair<int, int>> *bridge = graf.returnBridges();
+
+	if (bridge->begin() == bridge->end())
+	{
+		std::cout << "NONE" << std::endl;
+	}
+
+	for (auto it = bridge->begin(); it != bridge->end(); it++)
+	{
+		auto p = *it;
+		std::cout << p.first << " " << p.second << std::endl;
+	}
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
