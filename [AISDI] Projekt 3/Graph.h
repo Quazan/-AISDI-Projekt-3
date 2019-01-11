@@ -8,6 +8,7 @@ class Graph
 	std::vector <int> list[MX];
 	bool visited[MX];
 	std::vector <std::pair<int, int>> bridges;
+	int check;
 
 	void DFS(int);
 	void resetVisited();

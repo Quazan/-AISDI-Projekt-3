@@ -18,15 +18,15 @@ int main()
 		std::cin >> a >> b;
 		graf.add(a, b);
 	}*/
-	std::cout << "Podaj liczbe wierzcholkow w grafie." << std::endl;
-	//std::cin >> v;
-	std::cout << "W kolejnych liniach podaj definicje krawedzi w grafie. Dwie liczby oddzielone spacja. Wcisnij ctrl+d aby zakonczyc wprowadzanie krawedzi." << std::endl;
-	/*while (true)
+	/*std::cout << "Podaj liczbe wierzcholkow w grafie." << std::endl;
+    std::cin >> v;
+	std::cout << "W kolejnych liniach podaj definicje krawedzi w grafie. Dwie liczby oddzielone spacja. Wcisnij ctrl+d aby zakonczyc wprowadzanie krawedzi." << std::endl;*/
+	while (true)
 	{
 		std::cin >> a >> b;
 		if (std::cin.eof()) break;
 		graf.add(a, b);
-	}*/
+	}
 
 	for (int i = 0; i < 100; i++)
 	{

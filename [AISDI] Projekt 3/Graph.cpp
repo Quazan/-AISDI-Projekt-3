@@ -7,6 +7,7 @@
 void Graph::DFS(int v)
 {
 	visited[v] = true;
+	check++;
 
 	for (auto it = list[v].begin(); it != list[v].end(); it++)
 	{
@@ -48,28 +49,27 @@ void Graph::add(int a, int b)
 
 int Graph::findBridges()
 {
-	int check;
 
 	for (int i = 0; i < vertex; i++)
 	{
 		for (auto it = list[i].begin(); it != list[i].end(); it++)
 		{
 			if (*it < i) continue;
-
+			//if (list[i].size() == 1 || list[*it].size() == 1) continue;
 			visited[i] = visited[*it] = true;
-			check = 0;
+			check = 2;
 
 			for (int j = 0; j < vertex; j++)
 			{
 				if (!visited[j])
 				{
-					if (++check > 1)
+					DFS(j);
+
+					if (check != vertex)
 					{
 						bridges.push_back(std::make_pair(i, *it));
 						break;
 					}
-
-					DFS(j);
 				}
 
 			}
